@@ -146,6 +146,44 @@ export const inputComponents = [
     placeholder: '请输入',
     height: 300, // 编辑器高度
     branding: false // 隐藏右下角品牌烙印
+  },
+  {
+    __config__: {
+      label: '文本',
+      width: '200px',
+      prop: '',
+      align: '',
+      labelWidth: null,
+      labelHeight: null,
+      showLabel: false,
+      changeTag: true,
+      tag: 'ts-text',
+      tagIcon: 'text',
+      defaultValue: undefined,
+      style: {
+        fontWeight: 'bold',
+        lineHeight: 1,
+        fontSize: '10px',
+        textAlign: 'left',
+        color: 'black'
+      },
+      required: false,
+      layout: 'colFormItem',
+      span: 24,
+      document: 'https://element.eleme.cn/#/zh-CN/component/input',
+      regList: [],
+    },
+    __slot__: {
+      span: '文本'
+    },
+    style: { width: '100%' },
+    clearable: true,
+    'prefix-icon': '',
+    'suffix-icon': '',
+    maxlength: null,
+    'show-word-limit': false,
+    readonly: false,
+    disabled: false
   }
 ]
 

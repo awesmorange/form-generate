@@ -290,6 +290,18 @@ const tags = {
     const height = el.height ? `:height="${el.height}"` : ''
     const branding = el.branding ? `:branding="${el.branding}"` : ''
     return `<${tag} ${vModel} ${placeholder} ${height} ${branding}></${tag}>`
+  },
+  'ts-text': el => {
+    const { clearable, placeholder, width, lineHeight, fontSize } = attrBuilder(el)
+    const text = el.__slot__.span
+    const { style } = el
+    let styles = ''
+    // console.log('AAA', style)
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const key in style) {
+      styles += `${key}:${style[key]};`
+    }
+    return `<div ${clearable} style="${styles}" ${placeholder}><span>${text}</span></div>`
   }
 }
 
