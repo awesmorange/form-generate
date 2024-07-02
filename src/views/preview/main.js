@@ -3,9 +3,11 @@ import { loadScriptQueue } from '@/utils/loadScript'
 import axios from 'axios'
 import Tinymce from '@/components/tinymce/index.vue'
 import tsText from '@/components/ts-components/ts-text.vue'
+import tsIframe from '@/components/ts-components/ts-iframe.vue'
 
 Vue.component('tinymce', Tinymce)
 Vue.component('ts-text', tsText)
+Vue.component('ts-iframe', tsIframe)
 Vue.prototype.$axios = axios
 
 const $previewApp = document.getElementById('previewApp')

@@ -527,6 +527,19 @@
                 </el-radio-group>
               </el-form-item>
             </template>
+            <!-- 自定义组件 iframe -->
+            <template v-if="activeData.__config__.tag === 'ts-iframe'">
+              <el-form-item label="iframe路径">
+                <el-input v-model="activeData.src" placeholder="请输入iframe路径" />
+              </el-form-item>
+              <el-form-item label="iframe宽度">
+                <el-input v-model="activeData.width" placeholder="请输入iframe宽度" />
+              </el-form-item>
+              <el-form-item label="iframe高度">
+                <el-input-number v-model="activeData.height" placeholder="高度"
+                  @input="() => activeData.__config__.renderKey = +new Date()" />
+              </el-form-item>
+            </template>
           </template>
         </el-form>
         <!-- 表单属性 -->
