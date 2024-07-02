@@ -110,7 +110,22 @@ const layouts = {
     </el-row>`
     str = colWrapper(scheme, str)
     return str
-  }
+  },
+  tsCard(scheme) {
+    const cardBody = buildElCardChild(scheme)
+    return `<el-row>
+              <el-col :span=${scheme.__config__.span}>
+                <el-card :body-style="{ padding: '0px' }">
+                  <div slot="header" className="clearfix"> 
+                    <span>${scheme.__config__.label}</span>
+                  </div>
+                  <div style="padding: 14px;">
+                    ${cardBody}
+                  </div>
+                </el-card>
+              <el-col/>
+            </el-row>`
+  }    
 }
 
 const tags = {
@@ -404,6 +419,12 @@ function buildElUploadChild(scheme) {
   else list.push(`<el-button size="small" type="primary" icon="el-icon-upload">${config.buttonText}</el-button>`)
   if (config.showTip) list.push(`<div slot="tip" class="el-upload__tip">只能上传不超过 ${config.fileSize}${config.sizeUnit} 的${scheme.accept}文件</div>`)
   return list.join('\n')
+}
+// el-card 子级
+function buildElCardChild(scheme) {
+  const { cardBody } = scheme.__config__.children
+  const actionChildren = cardBody.map(el => layouts[el.__config__.layout](el))
+  return actionChildren.join('\n')
 }
 
 /**

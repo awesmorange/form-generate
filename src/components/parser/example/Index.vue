@@ -24,6 +24,7 @@ export default {
       key2: +new Date(),
       formConf: {
         fields: [
+          /*
           {
             __config__: {
               label: '单行文本',
@@ -189,6 +190,130 @@ export default {
             placeholder: '图片加载中......',//图片未加载的占位内容
             error: '图片记载失败',//加载失败的内容
             __vModel__: 'field101'
+          },
+          */
+          {
+            __config__: {
+              formId: 101,
+              componentName: 'row105',
+              label: '卡片名称',
+              layout: 'tsCard',
+              labelWidth: '120px',
+              showLabel: false,
+              changeTag: false,
+              tag: 'el-card',
+              tagIcon: 'input',
+              required: false,
+              span: 24,
+              document: 'https://element.eleme.cn/#/zh-CN/compponent/card',
+              children: {
+                cardHeader: [],
+                cardBody: [
+                  {
+                    __config__: {
+                      label: '多行文本',
+                      labelWidth: null,
+                      showLabel: true,
+                      tag: 'el-input',
+                      tagIcon: 'textarea',
+                      required: true,
+                      layout: 'colFormItem',
+                      span: 24,
+                      regList: [],
+                      changeTag: true,
+                      document: 'https://element.eleme.cn/#/zh-CN/compponent/input',
+                      formId: 110,
+                      renderKey: '1101678697191047',
+                      defaultValue: '默认值123',
+                    },
+                    type: 'textarea',
+                    placeholder: '请输入多行文本',
+                    autosize: {
+                      minRows: 4,
+                      maxRows: 4
+                    },
+                    style: {
+                      width: '100%'
+                    },
+                    maxlength: null,
+                    'show-word-limit': false,
+                    readonly: false,
+                    disabled: false,
+                    __vModel__: 'field110'
+                  },
+                  {
+                    __config__: {
+                      label: '下拉选择',
+                      showLabel: true,
+                      labelWidth: null,
+                      tag: 'el-select',
+                      tagIcon: 'select',
+                      layout: 'colFormItem',
+                      span: 24,
+                      required: true,
+                      regList: [],
+                      changeTag: true,
+                      document: 'https://element.eleme.cn/#/zh-CN/component/select',
+                      formId: 109,
+                      renderKey: '1091678697186994',
+                      defaultValue: 1,
+                      placeholder: '请选择下拉选择',
+                      style: {
+                        width: '100%'
+                      },
+                      clearable: true,
+                      disabled: false,
+                      filterable: false,
+                      multiple: false,
+                    },
+                    __slot__: {
+                      options: [{
+                        label: '选项一',
+                        value: 1
+                      }, {
+                        label: '选项二',
+                        value: 2
+                      }]
+                    },
+                    __vModel__: 'field109',
+                  },
+                  {
+                    __config__: {
+                      label: '单行文本',
+                      labelWidth: null,
+                      showLabel: true,
+                      changeTag: true,
+                      tag: 'el-input',
+                      tagIcon: 'input',
+                      required: true,
+                      layout: 'colFormItem',
+                      span: 24,
+                      document: 'https://element.eleme.cn/#/zh-CN/conmponent/input',
+                      regList: [],
+                      formId: 108,
+                      renderKey: '1081678697185753'
+                    },
+                    __slot__: {
+                      prepend: '',
+                      append: ''
+                    },
+                    placeholder: '请输入单行文本',
+                    style: {
+                      width: '100%'
+                    },
+                    clearable: true,
+                    'prefix-icon': '',
+                    'suffix-icon': '',
+                    maxlength: null,
+                    'show-word-limit': false,
+                    readonly: false,
+                    disabled: false,
+                    __vModel__: 'field108'
+                  }]
+              },
+              renderKey: '1011678696260531'
+            },
+            shadow: 'hover '
           }
         ],
         __methods__: {

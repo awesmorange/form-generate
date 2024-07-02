@@ -540,6 +540,17 @@
                   @input="() => activeData.__config__.renderKey = +new Date()" />
               </el-form-item>
             </template>
+            <!-- 自定义组件 Card -->
+            <template v-if="activeData.__config__.tag === 'el-card'">
+              <el-form-item label="阴影显示时机">
+                <el-radio-group v-model="activeData.shadow">
+                  <el-radio-button label="always">always</el-radio-button>
+                  <el-radio-button label="hover">hover</el-radio-button>
+                  <el-radio-button label="never">never</el-radio-button>
+                </el-radio-group>
+              </el-form-item>
+            </template>
+
           </template>
         </el-form>
         <!-- 表单属性 -->

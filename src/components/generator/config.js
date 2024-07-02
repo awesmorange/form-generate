@@ -664,6 +664,7 @@ export const layoutComponents = [
     justify: 'start',
     align: 'top'
   },
+  // 图片组件
   {
     __config__: {
       label: '图片',
@@ -688,6 +689,7 @@ export const layoutComponents = [
     placeholder: '图片加载中......',//图片未加载的占位内容
     error: '图片记载失败'//加载失败的内容
   },
+  // 自定义组件 iframe
   {
     __config__: {
       layout: 'colFormItem',
@@ -705,5 +707,30 @@ export const layoutComponents = [
     src: 'https://www.w3cschool.cn/',
     width: '100%',
     height: 400
+  },
+  // Card 组件
+  {
+    // 组件的自定义配置
+    __config__: {
+      formId: 105,
+      componentName: 'row105',
+      label: '卡片名称',
+      layout: 'tsCard',
+      labelWidth: '120px',
+      showLabel: false,
+      changeTag: false,
+      tag: 'el-card',
+      tagIcon: 'input',
+      defaultValue: undefined,
+      required: false,
+      span: 24,
+      document: 'https://element.eleme.cn/#/zh-CN/component/card',
+      children: {
+        cardHeader: [],
+        cardBody: []
+      }
+    },
+    // 其余的为可直接写在组件标签上的属性
+    shadow: 'always', // 设置阴影显示时机
   }
 ]
