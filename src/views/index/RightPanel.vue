@@ -11,8 +11,6 @@
       <el-scrollbar class="right-scrollbar">
         <!-- 组件属性 -->
         <el-form v-show="currentTab === 'field' && showField" size="small" label-width="90px">
-
-
           <template v-if="activeData.__config__.tag === 'ts-text'">
             <el-form-item label="文本内容">
               <el-input v-model="activeData.__slot__.span" type="textarea" placeholder="请输入文本内容" />
@@ -104,6 +102,9 @@
             </el-form-item>
             <el-form-item v-if="activeData.style && activeData.style.width !== undefined" label="组件宽度">
               <el-input v-model="activeData.style.width" placeholder="请输入组件宽度" clearable />
+            </el-form-item>
+            <el-form-item v-if="activeData.style && activeData.style.height !== undefined" label="组件高度">
+              <el-input v-model="activeData.style.height" placeholder="请输入组件高度" clearable />
             </el-form-item>
             <el-form-item v-if="activeData.__vModel__ !== undefined" label="默认值">
               <el-input :value="setDefaultValue(activeData.__config__.defaultValue)" placeholder="请输入默认值"
@@ -371,7 +372,7 @@
             </el-form-item>
 
             <el-form-item v-if="activeData.__config__.showLabel !== undefined
-            && activeData.__config__.labelWidth !== undefined" label="显示标签">
+      && activeData.__config__.labelWidth !== undefined" label="显示标签">
               <el-switch v-model="activeData.__config__.showLabel" />
             </el-form-item>
             <el-form-item v-if="activeData.branding !== undefined" label="品牌烙印">
@@ -405,10 +406,10 @@
               </el-select>
             </el-form-item>
             <el-form-item v-if="activeData.size !== undefined &&
-          (activeData.__config__.optionType === 'button' ||
-            activeData.__config__.border ||
-            activeData.__config__.tag === 'el-color-picker' ||
-            activeData.__config__.tag === 'el-button')" label="组件尺寸">
+      (activeData.__config__.optionType === 'button' ||
+        activeData.__config__.border ||
+        activeData.__config__.tag === 'el-color-picker' ||
+        activeData.__config__.tag === 'el-button')" label="组件尺寸">
               <el-radio-group v-model="activeData.size">
                 <el-radio-button label="medium">
                   中等
@@ -500,6 +501,31 @@
                   添加规则
                 </el-button>
               </div>
+            </template>
+            <!-- Image 组件 -->
+            <template v-if="activeData.__config__.tag === 'el-image'">
+              <el-form-item label="图片源">
+                <el-input v-model="activeData.src" placeholder="请输入图片源" />
+              </el-form-item>
+              <el-form-item label="图片如何适应容器">
+                <el-radio-group v-model="activeData.fit">
+                  <el-radio-button label="fill">
+                    fill
+                  </el-radio-button>
+                  <el-radio-button label="contain">
+                    contain
+                  </el-radio-button>
+                  <el-radio-button label="cover">
+                    cover
+                  </el-radio-button>
+                  <el-radio-button label="none">
+                    none
+                  </el-radio-button>
+                  <el-radio-button label="scale-down">
+                    scale-down
+                  </el-radio-button>
+                </el-radio-group>
+              </el-form-item>
             </template>
           </template>
         </el-form>

@@ -663,5 +663,29 @@ export const layoutComponents = [
     type: 'default',
     justify: 'start',
     align: 'top'
+  },
+  {
+    __config__: {
+      label: '图片',
+      labelWidth: null,
+      labelHeight: null,
+      showLabel: false,
+      changeTag: true,
+      tag: 'el-image',
+      tagIcon: 'image',
+      required: false,
+      span: 24,
+      layout: 'colFormItem'
+    },
+    style: { width: '100px', height: '100px' },
+    'preview-src-list': [
+      'https://images.pexels.com/photos/7615255/pexels-photo-7615255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/12294406/pexels-photo-12294406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      'https://images.pexels.com/photos/14540599/pexels-photo-14540599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    ],//开启图片预览功能
+    src: 'https://e.thsi.cn/img/4025199cade5c00d',
+    fit: 'fill',//确定图片如何适应容器框,同原生 object-fFit
+    placeholder: '图片加载中......',//图片未加载的占位内容
+    error: '图片记载失败'//加载失败的内容
   }
 ]
