@@ -125,7 +125,7 @@ const layouts = {
                 </el-card>
               <el-col/>
             </el-row>`
-  }    
+  }
 }
 
 const tags = {
@@ -308,7 +308,13 @@ const tags = {
   },
   // 文本组件
   'ts-text': el => {
-    const { clearable, placeholder, width, lineHeight, fontSize } = attrBuilder(el)
+    const {
+      clearable,
+      placeholder,
+      width,
+      lineHeight,
+      fontSize
+    } = attrBuilder(el)
     const text = el.__slot__.span
     const { style } = el
     let styles = ''
@@ -318,10 +324,15 @@ const tags = {
     }
     return `<div ${clearable} style="${styles}" ${placeholder}><span>${text}</span></div>`
   },
+  // 列表
+  'ts-list': el => {
+    const { tag, disabled, vModel } = attrBuilder(el)
+    return `<${tag} ${vModel} ${disabled}></${tag}>`
+  },
   // 图片组件
   'el-image': el => {
     const { src, fit, style } = el
-    //因为这里样式并不是很复杂,就不单独写在css.js里面了
+    // 因为这里样式并不是很复杂,就不单独写在css.js里面了
     let styles = ''
     const { tag } = attrBuilder(el)
     // eslint-disable-next-line guard-for-in,no-restricted-syntax
@@ -329,7 +340,7 @@ const tags = {
       styles += `${key}:${style[key]};`
     }
     const previewSrcList = `:preview-src-list="${confGlobal.formModel}.${el.__vModel__}"`
-    return `<${tag} style="${styles}" src="${src}" ${previewSrcList} fit="${fit}"></${tag}>`;
+    return `<${tag} style="${styles}" src="${src}" ${previewSrcList} fit="${fit}"></${tag}>`
   },
   // 自定义组件 iframe
   'ts-iframe': el => {

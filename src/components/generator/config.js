@@ -171,7 +171,7 @@ export const inputComponents = [
       layout: 'colFormItem',
       span: 24,
       document: 'https://element.eleme.cn/#/zh-CN/component/input',
-      regList: [],
+      regList: []
     },
     __slot__: {
       span: '文本'
@@ -184,6 +184,48 @@ export const inputComponents = [
     'show-word-limit': false,
     readonly: false,
     disabled: false
+  },
+  {
+    __config__: {
+      draggable: true,
+      name: '列表',
+      label: '列表',
+      tag: 'ts-list',
+      tagIcon: 'input',
+      layout: 'colFormItem',
+      showLabel: false,
+      showModel: true,
+      span: 24,
+      labelPosition: 'top',
+      defaultValue: [],
+      visible(param) {
+        console.log(param)
+        return true
+      },
+      required: false,
+      validator(rule, value, callback) {
+        console.log('config AAA', this.config)
+        console.log('value AAA', value)
+        if (value?.length) {
+          callback()
+        } else {
+          callback(new Error('故障设备不能为空，请至少添加一个设备'))
+        }
+      }
+    },
+    ref: 'tsListRef',
+    isShowTip: false,
+    limit: undefined
+    // on: {
+    //   'update:value': function (val) {
+    //     this.conf.__config__.defaultValue = val
+    //     // console.log('AAA update:value', val, 'this', this.conf)
+    //   },
+    //   'input:value': function (val) {
+    //     this.conf.__config__.defaultValue = val
+    //     // console.log('AAA input:value', val, 'this', this.conf)
+    //   }
+    // }
   }
 ]
 
@@ -683,11 +725,11 @@ export const layoutComponents = [
       'https://images.pexels.com/photos/7615255/pexels-photo-7615255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/12294406/pexels-photo-12294406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
       'https://images.pexels.com/photos/14540599/pexels-photo-14540599.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ],//开启图片预览功能
+    ], // 开启图片预览功能
     src: 'https://e.thsi.cn/img/4025199cade5c00d',
-    fit: 'fill',//确定图片如何适应容器框,同原生 object-fFit
-    placeholder: '图片加载中......',//图片未加载的占位内容
-    error: '图片记载失败'//加载失败的内容
+    fit: 'fill', // 确定图片如何适应容器框,同原生 object-fFit
+    placeholder: '图片加载中......', // 图片未加载的占位内容
+    error: '图片记载失败' // 加载失败的内容
   },
   // 自定义组件 iframe
   {
@@ -731,6 +773,6 @@ export const layoutComponents = [
       }
     },
     // 其余的为可直接写在组件标签上的属性
-    shadow: 'always', // 设置阴影显示时机
+    shadow: 'always' // 设置阴影显示时机
   }
 ]
